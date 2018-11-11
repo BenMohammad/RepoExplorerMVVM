@@ -28,37 +28,39 @@ public class DetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initCustomTabs();
-        final Intent intent = getIntent();
+
         ImageView ownerAvatar = findViewById(R.id.iv_owner_avatar);
-        Glide.with(this).load(intent.getStringExtra("avatarUrl")).into(ownerAvatar);
         TextView repoOwnerTv = findViewById(R.id.repo_owner_tv_details);
-        repoOwnerTv.setText(getString(R.string.owner_details, intent.getStringExtra("ownersName")));
         TextView repoNameTv = findViewById(R.id.repo_name_tv_details);
-        repoNameTv.setText(getString(R.string.project_name, intent.getStringExtra("repoName")));
         TextView repoSizeTv = findViewById(R.id.repo_size_tv_details);
-        repoSizeTv.setText(getString(R.string.project_size, intent.getStringExtra("repoSize")));
         TextView progLKangTv = findViewById(R.id.prog_lang_tv_details);
-        progLKangTv.setText(getString(R.string.written_in_details, intent.getStringExtra("language")));
         TextView scoreTv = findViewById(R.id.score_tv_details);
-        scoreTv.setText(getString(R.string.score_details, intent.getStringExtra("score")));
         TextView forksTv = findViewById(R.id.forks_tv_details);
-        forksTv.setText(getString(R.string.forks_count_details, intent.getStringExtra("forksCount")));
         TextView createdTv = findViewById(R.id.created_tv_details);
-        createdTv.setText(getString(R.string.created_details, intent.getStringExtra("prettyCreatedAt")));
         TextView updatedTv = findViewById(R.id.updated_tv_details);
-        updatedTv.setText(getString(R.string.updated_details, intent.getStringExtra("prettyUpdatedAt")));
         TextView pushedTv = findViewById(R.id.pushed_tv_details);
+        TextView hasWikiTv = findViewById(R.id.has_wiki_tv_details);
+        TextView descriptionTv = findViewById(R.id.description_tv_details);
+        Button viewCode = findViewById(R.id.view_code_btn_details);
+
+        final Intent intent = getIntent();
+        Glide.with(this).load(intent.getStringExtra("avatarUrl")).into(ownerAvatar);
+        repoOwnerTv.setText(getString(R.string.owner_details, intent.getStringExtra("ownersName")));
+        repoNameTv.setText(getString(R.string.project_name, intent.getStringExtra("repoName")));
+        repoSizeTv.setText(getString(R.string.project_size, intent.getStringExtra("repoSize")));
+        progLKangTv.setText(getString(R.string.written_in_details, intent.getStringExtra("language")));
+        scoreTv.setText(getString(R.string.score_details, intent.getStringExtra("score")));
+        forksTv.setText(getString(R.string.forks_count_details, intent.getStringExtra("forksCount")));
+        createdTv.setText(getString(R.string.created_details, intent.getStringExtra("prettyCreatedAt")));
+        updatedTv.setText(getString(R.string.updated_details, intent.getStringExtra("prettyUpdatedAt")));
         pushedTv.setText(getString(R.string.pushed_at_details, intent.getStringExtra("prettyPushedAt")));
         String hasWikiValue = intent.getStringExtra("hasWiki");
-        TextView hasWikiTv = findViewById(R.id.has_wiki_tv_details);
         if (hasWikiValue.equalsIgnoreCase("true"))
             hasWikiTv.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().
                     getDrawable(R.drawable.ic_check_circle_green_24dp), null);
         else hasWikiTv.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().
                 getDrawable(R.drawable.no_wiki_red_24dp), null);
-        TextView descriptionTv = findViewById(R.id.description_tv_details);
         descriptionTv.setText(getString(R.string.project_description_details, intent.getStringExtra("description")));
-        Button viewCode = findViewById(R.id.view_code_btn_details);
         viewCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +72,8 @@ public class DetailsActivity extends AppCompatActivity {
                     i.setData(Uri.parse(htmlUrl));
                     if (i.resolveActivity(getPackageManager()) != null) startActivity(i);
                     else
-                        Toast.makeText(DetailsActivity.this, "No internet browser", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailsActivity.this, getString(R.string.no_browser),
+                                Toast.LENGTH_SHORT).show();
                 }
             }
         });

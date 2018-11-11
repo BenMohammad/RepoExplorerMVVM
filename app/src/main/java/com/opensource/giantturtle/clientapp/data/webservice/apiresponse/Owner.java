@@ -3,9 +3,6 @@ package com.opensource.giantturtle.clientapp.data.webservice.apiresponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by StandardWorkSSD on 11/06/2018.
- */
 
 public class Owner {
 

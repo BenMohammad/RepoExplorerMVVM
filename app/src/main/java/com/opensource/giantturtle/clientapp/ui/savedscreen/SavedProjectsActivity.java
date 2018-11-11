@@ -86,7 +86,7 @@ public class SavedProjectsActivity extends AppCompatActivity implements SavedPro
         //Toast.makeText(this, "Row clicked: position = "+position, Toast.LENGTH_SHORT).show();
         switch (clickActionSaved) {
             case DELETE_SAVED:
-                Toast.makeText(this, "Project deleted.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.project_deleted_toast), Toast.LENGTH_SHORT).show();
                 savedProjectsActivityViewModel.delete(savedProject);
                 break;
             case GO_TO_DETAILS:

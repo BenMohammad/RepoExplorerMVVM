@@ -20,15 +20,15 @@ public class SavedProjectsActivityViewModel extends AndroidViewModel {
         allSavedRepos = repository.getAllSavedProjects();
     }
 
-    public void delete(ModelSavedGitHubProject savedGitHubRepo) {
+    void delete(ModelSavedGitHubProject savedGitHubRepo) {
         repository.deleteSavedRepo(savedGitHubRepo);
     }
 
-    public void deleteAllSavedRepos() {
+    void deleteAllSavedRepos() {
         repository.deleteAllSavedRepos();
     }
 
-    public LiveData<List<ModelSavedGitHubProject>> getAllSavedRepos() {
+    LiveData<List<ModelSavedGitHubProject>> getAllSavedRepos() {
         return allSavedRepos;
     }
 }

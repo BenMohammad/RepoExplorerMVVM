@@ -71,11 +71,13 @@ public class MainActivity extends AppCompatActivity
             public void onChanged(@Nullable WebServiceMessage webServiceStatus) {
                 switch (webServiceStatus) {
                     case UPDATING_STATUS:
-                        Toast.makeText(MainActivity.this, getString(R.string.updating_notification_main), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, getString(R.string.updating_notification_main),
+                                Toast.LENGTH_SHORT).show();
                         showDots();
                         break;
                     case ON_FAILURE:
-                        Snackbar.make(findViewById(R.id.drawer_layout), R.string.fail_to_load_main, Snackbar.LENGTH_LONG)
+                        Snackbar.make(findViewById(R.id.drawer_layout), R.string.fail_to_load_main,
+                                Snackbar.LENGTH_LONG)
                                 .setAction("n f", null).show();
                         stopDots();
                         break;
@@ -83,7 +85,9 @@ public class MainActivity extends AppCompatActivity
                         stopDots();
                         break;
                     case ON_RESPONSE_NOTHING_FOUND:
-                        Snackbar.make(findViewById(R.id.drawer_layout), getString(R.string.nothing_found_main, mainActivityViewModel.getSearchTerm()), Snackbar.LENGTH_LONG)
+                        Snackbar.make(findViewById(R.id.drawer_layout), getString(R.string.nothing_found_main,
+                                mainActivityViewModel.getSearchTerm()),
+                                Snackbar.LENGTH_LONG)
                                 .setAction("n f", null).show();
                         stopDots();
                         adapter.setList(Collections.<ModelCachedGitHubProject>emptyList());
@@ -203,8 +207,6 @@ public class MainActivity extends AppCompatActivity
             }
             else {
                 Toast.makeText(this, R.string.no_play_store, Toast.LENGTH_SHORT).show();
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=2GiantTurtle")); //for devices where there is no play services
-                startActivity(intent);
             }
         } else if (id == R.id.about_author) {
             Intent intent = new Intent(Intent.ACTION_VIEW);

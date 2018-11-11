@@ -20,7 +20,7 @@
     <string name="share_app_nav_drawer">Share this application</string>
     <string name="disclaimer">DISCLAIMER</string>
     <string name="app_disclaimer">This open source mobile app is intended for easier viewing of user generated content on site github.com and educational purposes. The views and opinions expressed in this app are solely those of the users of github.com website. The information contained in this application is for general information purposes only. All product names, logos, and brands are property of their respective owners. </string>
-    <string name="no_play_store">No Play Store installed</string>
+    <string name="no_play_store">No Play Store installed or web browser</string>
     <string name="chooser_dialog_title">Share via:</string>
     <string name="bookmarks">Bookmarks</string>
     <string name="source_code">Source Code</string>
@@ -54,6 +54,8 @@
     <string name="fail_to_load_main">Failed to load, check your internet connection.</string>
     <string name="nothing_found_main">Nothing found for:\u0020 %1$s</string>
     <string name="no_more_main">No more results</string>
+    <string name="no_browser">No internet browser</string>
+    <string name="project_deleted_toast">Project deleted.</string>
 
 
 </resources>

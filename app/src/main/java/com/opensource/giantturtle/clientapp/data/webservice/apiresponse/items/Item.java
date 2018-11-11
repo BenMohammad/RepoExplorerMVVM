@@ -4,10 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.opensource.giantturtle.clientapp.data.webservice.apiresponse.Owner;
 
-/**
- * Created by StandardWorkSSD on 11/06/2018.
- */
-
 public class Item {
 
     @SerializedName("name")

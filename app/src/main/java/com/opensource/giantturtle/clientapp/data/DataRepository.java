@@ -97,7 +97,8 @@ public class DataRepository {
         webServiceCallStatus.setValue(WebServiceMessage.UPDATING_STATUS);
         final List<ModelCachedGitHubProject> gitHubProjectsList = new ArrayList<ModelCachedGitHubProject>();
         if (retrofit==null || gitHubClient==null){//because using only GitHubClientService
-            retrofit = new Retrofit.Builder().baseUrl(GitHubClientService.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+            retrofit = new Retrofit.Builder().baseUrl(GitHubClientService.BASE_URL).
+                    addConverterFactory(GsonConverterFactory.create()).build();
             gitHubClient = retrofit.create(GitHubClientService.class);
         }
         Call<GitHubRepo> call = gitHubClient.getRepos(searchTerm, pageNumber, resultsPerPage);
@@ -234,7 +235,8 @@ public class DataRepository {
     }
 
     public void bookmarkProject(ModelBaseGitHubProject baseGitHubProject) {
-        new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.INSERT_BOOKMARK).execute(Utils.changeProjectType(baseGitHubProject));
+        new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.INSERT_BOOKMARK).
+                execute(Utils.changeProjectType(baseGitHubProject));
     }
 
     public void deleteSavedRepo(ModelSavedGitHubProject savedGitHubRepo) {

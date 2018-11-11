@@ -37,7 +37,8 @@ public class MainActivityViewModel extends AndroidViewModel {
         if (!repository.isCacheFreshEnough(new Date())) {
             repository.updateFromWebService(this.searchTerm, pageCounter, GitHubClientService.RESULTS_PER_PAGE);
         }
-        webServiceStatus = (MutableLiveData<WebServiceMessage>) Transformations.switchMap(repository.getWebServiceMessage(), new Function<WebServiceMessage, LiveData<WebServiceMessage>>() {
+        webServiceStatus = (MutableLiveData<WebServiceMessage>) Transformations.switchMap(repository.getWebServiceMessage(),
+                new Function<WebServiceMessage, LiveData<WebServiceMessage>>() {
             @Override
             public LiveData<WebServiceMessage> apply(WebServiceMessage input) {
                 switch (input) {
