@@ -39,27 +39,61 @@
         android:background="@drawable/rounded_transparent_black_background"
          />
 
-    <Button
-        android:id="@+id/view_code_btn_details"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:id="@+id/buttons_layout"
         android:layout_alignStart="@+id/iv_owner_avatar"
         android:layout_alignEnd="@+id/iv_owner_avatar"
         android:layout_below="@id/repo_owner_tv_details"
         android:layout_marginTop="@dimen/view_code_top_margin"
-        android:drawablePadding="1dp"
-        android:drawableBottom="@drawable/view_code_24dp"
-        android:background="@drawable/white_rounded_button_selector"
-        android:gravity="center"
-        android:text="@string/view_code" />
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/action_details"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:background="@drawable/white_rounded_button_selector"
+            android:textSize="@dimen/action_button_text_size"
+            tools:drawableLeft="@drawable/bookmarks_24dp"
+            android:padding="5dp"
+            tools:text="Bookmark"
+            />
+
+        <Button
+            android:id="@+id/view_code_btn_details"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/black"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_height="wrap_content"
+            android:drawablePadding="1dp"
+            android:padding="5dp"
+            android:drawableRight="@drawable/view_code_24dp"
+            android:background="@drawable/white_rounded_button_selector"
+            android:text="@string/view_code" />
+
+    </LinearLayout>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
         android:scrollbars="vertical"
-        android:layout_below="@+id/view_code_btn_details">
+        android:layout_below="@+id/buttons_layout">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -49,6 +49,20 @@
                 android:textColor="@color/whiteColor"
                 android:textSize="@dimen/repo_owner_text_size"
                 android:background="@drawable/rounded_transparent_black_background" />
+            <Button
+                android:id="@+id/action_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/iv_owner_avatar"
+                android:background="@drawable/rounded_gray_background"
+                android:textSize="@dimen/action_button_text_size"
+                android:drawableStart="@drawable/bookmarks_24dp"
+                tools:text="Action"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignLeft="@+id/iv_owner_avatar"
+                android:layout_alignTop="@+id/iv_owner_avatar"
+                />
 
         </RelativeLayout>
 

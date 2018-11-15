@@ -56,6 +56,8 @@
     <string name="no_more_main">No more results</string>
     <string name="no_browser">No internet browser</string>
     <string name="project_deleted_toast">Project deleted.</string>
+    <string name="delete_project_snack">Delete this project?</string>
+
 
 
 </resources>

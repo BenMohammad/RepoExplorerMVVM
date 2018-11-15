@@ -81,42 +81,6 @@ public class MainActivityTest {
         recyclerViewInteraction.perform(actionOnItemAtPosition(0, click()));
     }
 
-    @Test
-    public void viewCodeDetails() {
-        RecyclerView recyclerView = activity.getActivity().recyclerView;
-        int itemCount = recyclerView.getAdapter().getItemCount();
-        ViewInteraction recyclerViewInteraction = onView(
-                allOf(withId(R.id.recycler_view),
-                        childAtPosition(
-                                childAtPosition(
-                                        childAtPosition(
-                                                withId(R.id.drawer_layout),
-                                                0),
-                                        1),
-                                0)));
-        recyclerViewInteraction.perform(actionOnItemAtPosition(itemCount/2, click()));
-
-        try {
-            Thread.sleep(700);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ViewInteraction viewCodeDetails = onView(
-                allOf(withId(R.id.view_code_btn_details), withText(R.string.view_code_button),
-                        childAtPosition(
-                                childAtPosition(
-                                        childAtPosition(
-                                                allOf(withId(android.R.id.content),
-                                                        childAtPosition(
-                                                                withId(R.id.action_bar_root),
-                                                                1)),
-                                                0),
-                                        1),
-                                2),
-                        isDisplayed()));
-        viewCodeDetails.perform(click());
-    }
 
     @Test
     public void clickOnLastItem() {

@@ -40,6 +40,26 @@ public class Utils {
         return myIntent;
     }
 
+    //TODO instrument unit test this
+    public static ModelSavedGitHubProject projectFromIntent(Intent intent) {
+        ModelSavedGitHubProject savedGitHubProject = new ModelSavedGitHubProject();
+        savedGitHubProject.setAvatarUrl(intent.getStringExtra("avatarUrl"));
+        savedGitHubProject.setCreatedAt(intent.getStringExtra("createdAt"));
+        savedGitHubProject.setPushedAt(intent.getStringExtra("pushedAt"));
+        savedGitHubProject.setUpdatedAt(intent.getStringExtra("updatedAt"));
+        savedGitHubProject.setDescription(intent.getStringExtra("description"));
+        savedGitHubProject.setHtmlUrl(intent.getStringExtra("htmlUrl"));
+        savedGitHubProject.setForksCount(Integer.parseInt(intent.getStringExtra("forksCount")));
+        savedGitHubProject.setOwnersName(intent.getStringExtra("ownersName"));
+        savedGitHubProject.setLanguage(intent.getStringExtra("language"));
+        savedGitHubProject.setScore(Float.parseFloat(intent.getStringExtra("score")));
+        savedGitHubProject.setRepoName(intent.getStringExtra("repoName"));
+        savedGitHubProject.setRepoSize(Double.parseDouble(intent.getStringExtra("repoSize")));
+        savedGitHubProject.setId(Integer.parseInt(intent.getStringExtra("id")));
+        savedGitHubProject.setHasWiki(Boolean.parseBoolean(intent.getStringExtra("hasWiki")));
+        return savedGitHubProject;
+    }
+
     public static ModelSavedGitHubProject changeProjectType(ModelBaseGitHubProject baseGitHubProject) {
         //Convert project from cached to saved, because I need to have two class entities to save in two different tables
         ModelSavedGitHubProject savedGitHubProject = new ModelSavedGitHubProject();

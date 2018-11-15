@@ -45,7 +45,8 @@ public class ModelBaseGitHubProject {
 
     public ModelBaseGitHubProject() {
     }
-        public int getId() {
+
+    public int getId() {
         return id;
     }
 

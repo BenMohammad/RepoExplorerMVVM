@@ -14,7 +14,7 @@ import static org.hamcrest.CoreMatchers.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class UtilsChangeProjectTypeTest {
+public class UtilsTest {
 
     @Test
     public void changedProjectType() {
