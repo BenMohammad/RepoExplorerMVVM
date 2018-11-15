@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.source_code){
             Intent intent = new Intent(Intent.ACTION_VIEW);
             //TODO set here new repository link
-            intent.setData(Uri.parse("https://github.com/giantturtle/RepoExplorerMVVM"));
+            intent.setData(Uri.parse("https://github.com/giantturtle/RepoExplorerMVVM?files=1"));
             if(intent.resolveActivity(getPackageManager()) != null){
                 startActivity(intent);
             }
