@@ -8,6 +8,12 @@ import com.opensource.giantturtle.clientapp.data.database.ModelBaseGitHubProject
 import com.opensource.giantturtle.clientapp.data.database.ModelSavedGitHubProject;
 import com.opensource.giantturtle.clientapp.ui.detailsscreen.DetailsActivity;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Utils {
 
     public static Intent createDeatailsIntent(Activity parentActivity, ModelBaseGitHubProject clickedProject) {
@@ -51,5 +57,22 @@ public class Utils {
         savedGitHubProject.setRepoSize(baseGitHubProject.getRepoSize());
         savedGitHubProject.setScore(baseGitHubProject.getScore());
         return savedGitHubProject;
+    }
+
+
+    public static String convertToPrettyTime(String dateStr)   {
+        if (dateStr!=null){
+            try{
+                PrettyTime prettyTime = new PrettyTime();
+                SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+                Date convertedDate = sourceFormat.parse(dateStr);
+                return prettyTime.format(convertedDate);
+            } catch (ParseException parseException){
+                return dateStr;
+            }
+
+        }
+        else return "N/A";
+
     }
 }
