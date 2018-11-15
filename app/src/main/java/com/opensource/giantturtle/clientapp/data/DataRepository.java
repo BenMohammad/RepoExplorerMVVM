@@ -108,21 +108,22 @@ public class DataRepository {
                 //Log.d("respBody",response.body().toString());
                 ArrayList<Item> itemList = response.body().getItems();
                 for (int i = 0; i < itemList.size(); i++) {
-                    ModelCachedGitHubProject current = new ModelCachedGitHubProject();
-                    current.setOwnersName(itemList.get(i).getOwner().getLogin());
-                    current.setRepoName(itemList.get(i).getName());
-                    current.setRepoSize(itemList.get(i).getSize());
-                    current.setHasWiki(itemList.get(i).isHas_wiki());
-                    current.setCreatedAt(itemList.get(i).getCreated_at());
-                    current.setPushedAt(itemList.get(i).getPushed_at());
-                    current.setUpdatedAt(itemList.get(i).getUpdated_at());
-                    current.setHtmlUrl(itemList.get(i).getHtml_url());
-                    current.setAvatarUrl(itemList.get(i).getOwner().getAvatar_url());
-                    current.setLanguage(itemList.get(i).getLanguage());
-                    current.setForksCount(itemList.get(i).getForks_count());
-                    current.setScore(itemList.get(i).getScore());
-                    current.setDescription(itemList.get(i).getDescription());
-                    gitHubProjectsList.add(current);
+                    ModelCachedGitHubProject currentProject = new ModelCachedGitHubProject();
+                    Item responseItem = itemList.get(i);
+                    currentProject.setOwnersName(responseItem.getOwner().getLogin());
+                    currentProject.setRepoName(responseItem.getName());
+                    currentProject.setRepoSize(responseItem.getSize());
+                    currentProject.setHasWiki(responseItem.isHas_wiki());
+                    currentProject.setCreatedAt(responseItem.getCreated_at());
+                    currentProject.setPushedAt(responseItem.getPushed_at());
+                    currentProject.setUpdatedAt(responseItem.getUpdated_at());
+                    currentProject.setHtmlUrl(responseItem.getHtml_url());
+                    currentProject.setAvatarUrl(responseItem.getOwner().getAvatar_url());
+                    currentProject.setLanguage(responseItem.getLanguage());
+                    currentProject.setForksCount(responseItem.getForks_count());
+                    currentProject.setScore(responseItem.getScore());
+                    currentProject.setDescription(responseItem.getDescription());
+                    gitHubProjectsList.add(currentProject);
                 }
                 if (!gitHubProjectsList.isEmpty()) {
                     boolean clearPreviousCache;

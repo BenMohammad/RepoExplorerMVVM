@@ -4,6 +4,10 @@ import android.app.Application;
 
 import com.squareup.leakcanary.LeakCanary;
 
+/*
+Used by LeakCanary for memory leak detection (only in debug version of the app).
+*/
+
 public class MyApplication extends Application {
 
     @Override

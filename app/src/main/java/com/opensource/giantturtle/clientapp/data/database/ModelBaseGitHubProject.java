@@ -3,11 +3,15 @@ package com.opensource.giantturtle.clientapp.data.database;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
-import org.ocpsoft.prettytime.PrettyTime;
+import com.opensource.giantturtle.clientapp.utils.Utils;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+/*
+This class is not an Room entity, its a superclass for Room entities ModeCachedGitHubProject and
+ModelSavedGitHubProject entities, because Room needsto have separate class for each entity in order
+ to store it in separate tables
+*/
 
 public class ModelBaseGitHubProject {
 
@@ -111,15 +115,8 @@ public class ModelBaseGitHubProject {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
-
         //For pretty date format
-        try {
-            this.prettyCreatedAt = convertPrettyFormat(createdAt);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            this.prettyCreatedAt = createdAt;
-        }
-
+        this.prettyCreatedAt = Utils.convertToPrettyTime(createdAt);
     }
 
     public String getUpdatedAt() {
@@ -128,12 +125,7 @@ public class ModelBaseGitHubProject {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
-        try {
-            this.prettyUpdatedAt = convertPrettyFormat(updatedAt);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            this.prettyUpdatedAt = updatedAt;
-        }
+        this.prettyUpdatedAt = Utils.convertToPrettyTime(updatedAt);
     }
 
     public String getPushedAt() {
@@ -142,13 +134,7 @@ public class ModelBaseGitHubProject {
 
     public void setPushedAt(String pushedAt) {
         this.pushedAt = pushedAt;
-
-        try {
-            this.prettyPushedAt = convertPrettyFormat(pushedAt);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            this.prettyPushedAt = pushedAt;
-        }
+        this.prettyPushedAt = Utils.convertToPrettyTime(pushedAt);
     }
 
     public String getRepoName() {
@@ -181,18 +167,6 @@ public class ModelBaseGitHubProject {
 
     public void setHasWiki(boolean hasWiki) {
         this.hasWiki = hasWiki;
-    }
-
-
-    private static String convertPrettyFormat(String dateStr) throws ParseException {
-        if (dateStr!=null){
-            PrettyTime prettyTime = new PrettyTime();
-            SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-            Date convertedDate = sourceFormat.parse(dateStr);
-            return prettyTime.format(convertedDate);
-        }
-        else return "N/A";
-
     }
 
 }
